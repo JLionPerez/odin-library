@@ -12,7 +12,7 @@ function Book(id, title, author, num_pages, read_status) {
     this.read_status = read_status;
     
     this.info = () => {
-        return ("ID: " + id + ", " + title + "by " + author + ", " + num_pages + ", " + read_status)
+        return ("ID: " + id + ", " + title + " by " + author + ", " + num_pages + ", " + read_status)
     }
 }
 
@@ -20,8 +20,7 @@ function addBookToLibrary(title, author, num_pages, read_status) {
     let id = self.crypto.randomUUID()
     const newBook = new Book(id, title, author, num_pages, read_status);
     myLibrary.push(newBook)
-    console.log(newBook.id)
 }
 
 addBookToLibrary("a title", "an author", "number of pages", "it's been read")
-console.log(myLibrary)
+console.log(myLibrary[0].info())
