@@ -1,20 +1,27 @@
 const myLibrary = [];
 
-function Book(id,title_author, num_pages, read_status) {
+function Book(id, title, author, num_pages, read_status) {
     if (!new.target) {
         throw Error("You must use the 'new operator to call the constructor")
     }
-    
+
     this.id = id;
-    this.title_author = title_author;
+    this.title = title;
+    this.author = author;
     this.num_pages = num_pages;
     this.read_status = read_status;
     
     this.info = () => {
-        return (title_author + ", " + num_pages + ", " + read_status)
+        return ("ID: " + id + ", " + title + "by " + author + ", " + num_pages + ", " + read_status)
     }
 }
 
-function addBookToLibrary() {
-  // take params, create a book then store it in the array
+function addBookToLibrary(title, author, num_pages, read_status) {
+    let id = self.crypto.randomUUID()
+    const newBook = new Book(id, title, author, num_pages, read_status);
+    myLibrary.push(newBook)
+    console.log(newBook.id)
 }
+
+addBookToLibrary("a title", "an author", "number of pages", "it's been read")
+console.log(myLibrary)
