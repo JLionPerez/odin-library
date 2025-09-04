@@ -7,6 +7,10 @@
     /* color: #B89088; */
 }
 
+table, th, tr, td {
+    border: 1px solid;
+}
+
 /* body {
     background-color: #E6D4D2;
     padding: 125px 200px;
