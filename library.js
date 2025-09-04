@@ -23,4 +23,7 @@ function addBookToLibrary(title, author, num_pages, read_status) {
 }
 
 addBookToLibrary("a title", "an author", "number of pages", "it's been read")
-console.log(myLibrary[0].info())
+addBookToLibrary("2", "2", "2", "2")
+addBookToLibrary("blah", "blahblah", "blah","blah")
+addBookToLibrary("blah1", "blahblah1", "blah1","blah1")
+
