@@ -13,10 +13,6 @@ function Book(id, title, author, num_pages, read_status) {
     this.author = author;
     this.num_pages = num_pages;
     this.read_status = read_status;
-    
-    // this.info = () => {
-    //     return ("ID: " + id + ", " + title + " by " + author + ", " + num_pages + ", " + read_status)
-    // }
 }
 
 
@@ -25,6 +21,7 @@ function addBookToLibrary(title, author, num_pages, read_status) {
     let id = self.crypto.randomUUID()
     const newBook = new Book(id, title, author, num_pages, read_status);
     myLibrary.push(newBook)
+    id = ''
 }
 
 function populateTable() {
@@ -42,22 +39,40 @@ function populateTable() {
     }
 }
 
+
+// buttons
 const showFormBtn = document.getElementById("show_form")
 const dialog = document.getElementById("dialog")
+const close = document.getElementById("close_btn")
+const addBookBtn = document.getElementById("confirm_btn")
+
+// new book attributes
 
 showFormBtn.addEventListener("click", () => {
     dialog.showModal();
 });
 
+close.addEventListener('click', () => {
+    dialog.close()
+})
 
+addBookBtn.addEventListener('click', (e) => {
+    const bookTitle = document.getElementById("book_title")
+    const bookAuthor = document.getElementById("book_author")
+    const bookPages = document.getElementById("book_pages")
+    const bookStatus = document.getElementById("read_status")
 
-// testing site
+    addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, bookStatus.value)
+    populateTable()
+    dialog.close()
 
-addBookToLibrary("a title", "an author", "number of pages", "it's been read")
-addBookToLibrary("2", "2", "2", "2")
-addBookToLibrary("blah", "blahblah", "blah","blah")
-addBookToLibrary("blah1", "blahblah1", "blah1","blah1")
+    // purge values
+    bookTitle.value = ''
+    bookAuthor.value = ''
+    bookPages.value = ''
+    bookStatus.value = ''
+    // populateTable()
 
-// console.log(myLibrary[0].info())
-
-populateTable()
+    console.log(bookTitle.value)
+    e.preventDefault();
+})

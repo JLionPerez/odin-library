@@ -29,31 +29,32 @@
         <dialog id="dialog">
             <form method="dialog">
                 <button id="close_btn">x</button>
+                <p>Book Info.</p>
                 <p>
                     <label>
                         Title: 
-                        <input id="book_title" type="text" required/>
+                        <input id="book_title" type="text" autocomplete="off"/>
                     </label>
                 </p>
                 <p>
                     <label>
                         Author: 
-                        <input id="book_author" type="text" required/>
+                        <input id="book_author" type="text" autocomplete="off" required/>
                     </label>
                 </p>
                 <p>
                     <label>
                         Number of pages: 
-                        <input id="book_pages" type="number" value="0" required/>
+                        <input id="book_pages" type="number" min="0" value="0" autocomplete="off"/>
                     </label>
                 </p>
                 <p>
                     <label>
                         Have you read this book? 
-                        <input id="read_status" type="checkbox"/>
+                        <input id="read_status" type="checkbox" autocomplete="off"/>
                     </label>
                 </p>
-                <button id="confirm_btn">Add Book</button>
+                <button type="submit" id="confirm_btn">Add Book</button>
             </form>
         </dialog>
         <button id="show_form">Add New Book</button>
