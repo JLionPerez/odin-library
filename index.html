@@ -10,19 +10,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- <div class="section-name">Trash</div>
-        <div class="section-name">ID</div>
-        <div class="section-name">Title</div>
-        <div class="section-name">Author</div>
-        <div class="section-name">Total Pages</div>
-        <div class="section-name">Read?</div>
-
-        <div class="books"></div> -->
-
         <table>
             <thead>    
                 <tr>
-                    <th colspan="1">Trash</th>
+                    <th colspan="1">Remove</th>
                     <th colspan="1">ID</th>
                     <th colspan="1">Title</th>
                     <th colspan="1">Author</th>
@@ -34,6 +25,38 @@
 
             </tbody>
         </table>
+
+        <dialog id="dialog">
+            <form method="dialog">
+                <button id="close_btn">x</button>
+                <p>
+                    <label>
+                        Title: 
+                        <input id="book_title" type="text" required/>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Author: 
+                        <input id="book_author" type="text" required/>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Number of pages: 
+                        <input id="book_pages" type="number" value="0" required/>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Have you read this book? 
+                        <input id="read_status" type="checkbox"/>
+                    </label>
+                </p>
+                <button id="confirm_btn">Add Book</button>
+            </form>
+        </dialog>
+        <button id="show_form">Add New Book</button>
     </div>
 </body>
 </html>

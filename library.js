@@ -1,5 +1,8 @@
+// global variable
 const myLibrary = [];
 
+
+// constructor
 function Book(id, title, author, num_pages, read_status) {
     if (!new.target) {
         throw Error("You must use the 'new operator to call the constructor")
@@ -16,18 +19,13 @@ function Book(id, title, author, num_pages, read_status) {
     // }
 }
 
+
+// functions
 function addBookToLibrary(title, author, num_pages, read_status) {
     let id = self.crypto.randomUUID()
     const newBook = new Book(id, title, author, num_pages, read_status);
     myLibrary.push(newBook)
 }
-
-addBookToLibrary("a title", "an author", "number of pages", "it's been read")
-addBookToLibrary("2", "2", "2", "2")
-addBookToLibrary("blah", "blahblah", "blah","blah")
-addBookToLibrary("blah1", "blahblah1", "blah1","blah1")
-
-// console.log(myLibrary[0].info())
 
 function populateTable() {
     const tbody = document.querySelector("tbody")
@@ -43,5 +41,23 @@ function populateTable() {
         tbody.appendChild(tr)
     }
 }
+
+const showFormBtn = document.getElementById("show_form")
+const dialog = document.getElementById("dialog")
+
+showFormBtn.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+
+
+// testing site
+
+addBookToLibrary("a title", "an author", "number of pages", "it's been read")
+addBookToLibrary("2", "2", "2", "2")
+addBookToLibrary("blah", "blahblah", "blah","blah")
+addBookToLibrary("blah1", "blahblah1", "blah1","blah1")
+
+// console.log(myLibrary[0].info())
 
 populateTable()
