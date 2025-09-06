@@ -66,13 +66,14 @@ addBookBtn.addEventListener('click', (e) => {
     populateTable()
     dialog.close()
 
-    // purge values
+    // clears input boxes
     bookTitle.value = ''
     bookAuthor.value = ''
     bookPages.value = ''
     bookStatus.value = ''
-    // populateTable()
+    
+    // won't make copies of old books
+    myLibrary.pop()
 
-    console.log(bookTitle.value)
     e.preventDefault();
 })
