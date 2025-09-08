@@ -24,21 +24,22 @@ function addBookToLibrary(title, author, num_pages, read_status) {
     id = ''
 }
 
-// function createRemoveBtn() {
-//     const removeBtn = document.createElement("button")
-// }
 
 function populateTable() {
     const tbody = document.querySelector("tbody")
     for (let book of myLibrary) {
         const tr = document.createElement("tr")
         
-        // adds remove button first
+        // remove button is part of row, not book obj
         const removeBtn = document.createElement("button")
         removeBtn.id = "remove_btn"
         removeBtn.textContent = "Remove Book"
-        // removeBtn.style.width = "100px"
-        // removeBtn.style.height = "50px"
+        removeBtn.addEventListener("click", () => {
+            const rowID = removeBtn.parentElement.nextElementSibling;
+            console.log("Removed entry: " + rowID.textContent)
+            rowID.closest("tr").remove()
+        })
+
         const td = document.createElement("td")
         td.appendChild(removeBtn)
         tr.appendChild(td)
