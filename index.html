@@ -5,8 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="library.js" defer></script>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');</style>
 </head>
 <body>
-    
+    <div class="container">
+        <table>
+            <thead>    
+                <tr>
+                    <th colspan="1"></th>
+                    <th colspan="1">ID</th>
+                    <th colspan="1">Title</th>
+                    <th colspan="1">Author</th>
+                    <th colspan="1">Total Pages</th>
+                    <th colspan="1">Read?</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <dialog id="dialog">
+            <form method="dialog">
+                <button id="close_btn">x</button>
+                <p id="book_info">Book Info.</p>
+                <p id="form_title">
+                    <label>
+                        Title: 
+                        <input id="book_title" type="text" autocomplete="off"/>
+                    </label>
+                </p>
+                <p id="form_author">
+                    <label>
+                        Author: 
+                        <input id="book_author" type="text" autocomplete="off" required/>
+                    </label>
+                </p>
+                <p id="form_pages">
+                    <label>
+                        Number of pages: 
+                        <input id="book_pages" type="number" min="0" value="0" autocomplete="off"/>
+                    </label>
+                </p>
+                <button type="submit" id="confirm_btn">Add Book</button>
+            </form>
+        </dialog>
+        <button id="show_form">New Book</button>
+    </div>
 </body>
 </html>
