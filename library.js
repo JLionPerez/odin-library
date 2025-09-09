@@ -1,8 +1,6 @@
-// global variable
 const myLibrary = [];
 
 
-// constructor
 function Book(id, title, author, num_pages) {
     if (!new.target) {
         throw Error("You must use the 'new operator to call the constructor")
@@ -15,6 +13,7 @@ function Book(id, title, author, num_pages) {
 
     this.read_status = document.createElement('button')
     this.read_status.textContent = "No"
+    this.read_status.id = "rs_btn"
     this.read_status.addEventListener('click', () => {
         if (this.read_status.textContent === "No") {
             this.read_status.textContent = "Yes"
@@ -26,7 +25,6 @@ function Book(id, title, author, num_pages) {
 }
 
 
-// functions
 function addBookToLibrary(title, author, num_pages) {
     let id = self.crypto.randomUUID()
     const newBook = new Book(id, title, author, num_pages);
@@ -56,12 +54,8 @@ function populateTable() {
 
         for (const val in book) {
             if (book.hasOwnProperty(val)) {
-                // console.log(val)
                 const td = document.createElement("td")
-                // td.textContent = book[val]
-                // td.appendChild(book[val])
                 if (val === 'read_status') {
-                    // const rsBtn = book[val]
                     td.appendChild(book[val])
                 } else {
                     td.textContent = book[val]
@@ -74,7 +68,6 @@ function populateTable() {
 }
 
 
-// buttons
 const showFormBtn = document.getElementById("show_form")
 const dialog = document.getElementById("dialog")
 const close = document.getElementById("close_btn")
@@ -92,17 +85,14 @@ addBookBtn.addEventListener('click', (e) => {
     const bookTitle = document.getElementById("book_title")
     const bookAuthor = document.getElementById("book_author")
     const bookPages = document.getElementById("book_pages")
-    // const bookStatus = document.getElementById("read_status")
 
     addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value)
     populateTable()
     dialog.close()
 
-    // clears input boxes
     bookTitle.value = ''
     bookAuthor.value = ''
     bookPages.value = ''
-    // bookStatus.value = ''
     
     // won't make copies of old books
     myLibrary.pop()
