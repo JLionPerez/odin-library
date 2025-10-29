@@ -85,6 +85,9 @@ class Book {
 function addBookToLibrary(title, author, num_pages) {
     let id = self.crypto.randomUUID()
     const newBook = new Book(id, title, author, num_pages);
+    newBook.id = id;
+    newBook.title = title;
+    console.log(newBook.title)
     myLibrary.push(newBook)
     id = ''
 }
