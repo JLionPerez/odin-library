@@ -1,29 +1,86 @@
 const myLibrary = [];
 
 
-function Book(id, title, author, num_pages) {
-    if (!new.target) {
-        throw Error("You must use the 'new operator to call the constructor")
+// function Book(id, title, author, num_pages) {
+//     if (!new.target) {
+//         throw Error("You must use the 'new operator to call the constructor")
+//     }
+
+//     this.id = id;
+//     this.title = title;
+//     this.author = author;
+//     this.num_pages = num_pages;
+
+//     this.read_status = document.createElement('button')
+//     this.read_status.textContent = "No"
+//     this.read_status.id = "rs_btn"
+//     this.read_status.addEventListener('click', () => {
+//         if (this.read_status.textContent === "No") {
+//             this.read_status.textContent = "Yes"
+//         }
+//         else {
+//             this.read_status.textContent = "No"
+//         }
+//     })
+// }
+
+class Book {
+    constructor(id, title, author, num_pages) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.num_pages = num_pages;
+
+        this.read_status = document.createElement('button')
+        this.read_status.textContent = "No"
+        this.read_status.id = "rs_btn"
+        this.read_status.addEventListener('click', () => {
+            if (this.read_status.textContent === "No") {
+                this.read_status.textContent = "Yes"
+            }
+            else {
+                this.read_status.textContent = "No"
+            }
+        })
     }
 
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.num_pages = num_pages;
+    //get functions
+    // id
+    get id() {
+        return this._id;
+    }
+    // title
+    get title() {
+        return this._title;
+    }
+    // author
+    get author() {
+        return this,_author;
+    }
+    // num_pages
+    get num_pages() {
+        return this._num_pages;
+    }
 
-    this.read_status = document.createElement('button')
-    this.read_status.textContent = "No"
-    this.read_status.id = "rs_btn"
-    this.read_status.addEventListener('click', () => {
-        if (this.read_status.textContent === "No") {
-            this.read_status.textContent = "Yes"
-        }
-        else {
-            this.read_status.textContent = "No"
-        }
-    })
+
+    //set functions
+    set id(val) {
+        this._id = this.id;
+    }
+    // title
+    set title(val) {
+        this._title = this.val
+    }
+    // author
+    set author(val) {
+        this._author = this.val
+    }
+    // num_pages
+    set num_pages(val) {
+        this._num_pages = this.val
+    }
+
 }
-
 
 function addBookToLibrary(title, author, num_pages) {
     let id = self.crypto.randomUUID()
@@ -31,7 +88,6 @@ function addBookToLibrary(title, author, num_pages) {
     myLibrary.push(newBook)
     id = ''
 }
-
 
 function populateTable() {
     const tbody = document.querySelector("tbody")
