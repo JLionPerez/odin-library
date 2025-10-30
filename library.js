@@ -1,37 +1,66 @@
 const myLibrary = [];
 
+class Book {
+    constructor(id, title, author, num_pages) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.num_pages = num_pages;
 
-function Book(id, title, author, num_pages) {
-    if (!new.target) {
-        throw Error("You must use the 'new operator to call the constructor")
+        this.read_status = document.createElement('button')
+        this.read_status.textContent = "No"
+        this.read_status.id = "rs_btn"
+        this.read_status.addEventListener('click', () => {
+            if (this.read_status.textContent === "No") {
+                this.read_status.textContent = "Yes"
+            }
+            else {
+                this.read_status.textContent = "No"
+            }
+        })
     }
 
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.num_pages = num_pages;
+    get id() {
+        return this._id;
+    }
 
-    this.read_status = document.createElement('button')
-    this.read_status.textContent = "No"
-    this.read_status.id = "rs_btn"
-    this.read_status.addEventListener('click', () => {
-        if (this.read_status.textContent === "No") {
-            this.read_status.textContent = "Yes"
-        }
-        else {
-            this.read_status.textContent = "No"
-        }
-    })
+    get title() {
+        return this._title;
+    }
+
+    get author() {
+        return this._author;
+    }
+
+    get num_pages() {
+        return this._num_pages;
+    }
+
+    set id(val) {
+        this._id = val
+    }
+
+    set title(val) {
+        this._title = val
+    }
+
+    set author(val) {
+        this._author = val
+    }
+
+    set num_pages(val) {
+        this._num_pages = val
+    }
 }
-
 
 function addBookToLibrary(title, author, num_pages) {
     let id = self.crypto.randomUUID()
     const newBook = new Book(id, title, author, num_pages);
+    newBook.id = id;
+    newBook.title = title;
     myLibrary.push(newBook)
     id = ''
 }
-
 
 function populateTable() {
     const tbody = document.querySelector("tbody")
