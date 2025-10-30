@@ -1,29 +1,5 @@
 const myLibrary = [];
 
-
-// function Book(id, title, author, num_pages) {
-//     if (!new.target) {
-//         throw Error("You must use the 'new operator to call the constructor")
-//     }
-
-//     this.id = id;
-//     this.title = title;
-//     this.author = author;
-//     this.num_pages = num_pages;
-
-//     this.read_status = document.createElement('button')
-//     this.read_status.textContent = "No"
-//     this.read_status.id = "rs_btn"
-//     this.read_status.addEventListener('click', () => {
-//         if (this.read_status.textContent === "No") {
-//             this.read_status.textContent = "Yes"
-//         }
-//         else {
-//             this.read_status.textContent = "No"
-//         }
-//     })
-// }
-
 class Book {
     constructor(id, title, author, num_pages) {
         this.id = id;
@@ -44,42 +20,37 @@ class Book {
         })
     }
 
-    //get functions
-    // id
     get id() {
         return this._id;
     }
-    // title
+
     get title() {
         return this._title;
     }
-    // author
+
     get author() {
-        return this,_author;
+        return this._author;
     }
-    // num_pages
+
     get num_pages() {
         return this._num_pages;
     }
 
-
-    //set functions
     set id(val) {
-        this._id = this.id;
-    }
-    // title
-    set title(val) {
-        this._title = this.val
-    }
-    // author
-    set author(val) {
-        this._author = this.val
-    }
-    // num_pages
-    set num_pages(val) {
-        this._num_pages = this.val
+        this._id = val
     }
 
+    set title(val) {
+        this._title = val
+    }
+
+    set author(val) {
+        this._author = val
+    }
+
+    set num_pages(val) {
+        this._num_pages = val
+    }
 }
 
 function addBookToLibrary(title, author, num_pages) {
@@ -87,7 +58,6 @@ function addBookToLibrary(title, author, num_pages) {
     const newBook = new Book(id, title, author, num_pages);
     newBook.id = id;
     newBook.title = title;
-    console.log(newBook.title)
     myLibrary.push(newBook)
     id = ''
 }
