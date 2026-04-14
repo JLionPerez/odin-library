@@ -2,7 +2,7 @@
 
 **Live Demo:** https://jlionperez.github.io/odin-library/
 
-A dynamic book tracking application built with JavaScript, HTML, and CSS. Assignment from The Odin Project Full Stack Course.
+A dynamic book tracking application built with JavaScript, HTML, and CSS.
 
 ## :pencil: Features
 
@@ -18,7 +18,7 @@ A dynamic book tracking application built with JavaScript, HTML, and CSS. Assign
 - HTML5
 - CSS3
 
-## :memo: Concepts Applied
+## :book: Concepts Applied
 
 - Object-Oriented Programming using ES6 classes with constructor, getters, and setters
 - cryto.randomUUID() for unique ID generation
